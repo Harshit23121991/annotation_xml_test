@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 21, 2014 4:34:40 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+	<class name="com.cluster.Employee" table="employee" catalog="subbumysql">
+		<id name="empid" type="int">
+			<column name="EMPID" />
+			<generator class="increment" />
+		</id>
+		<many-to-one name="department" class="com.cluster.Department"
+			fetch="select">
+			<column name="DEPTID" />
+		</many-to-one>
+		<property name="ename" type="string">
+			<column name="ENAME" length="20" />
+		</property>
+		<property name="email" type="string">
+			<column name="EMAIL" length="30" />
+		</property>
+	</class>
+</hibernate-mapping>
